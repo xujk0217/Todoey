@@ -16,7 +16,6 @@ class ToDoListViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         loadItems()
     }
     //MARK: - Tableview DataSource Methods
@@ -38,14 +37,8 @@ class ToDoListViewController: UITableViewController {
         return cell
     }
     
-    //MARK: - TableView Delegate Methods(select)
+    //MARK: - TableView Delegate Methods (select)
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        if itemArray[indexPath.row].done == false{
-            itemArray[indexPath.row].done = true
-        }else {
-            itemArray[indexPath.row].done = false
-        }
         
         itemArray[indexPath.row].done = !itemArray[indexPath.row].done
         
@@ -91,7 +84,7 @@ class ToDoListViewController: UITableViewController {
         
         do{
             let data = try encoder.encode(self.itemArray)
-            try data.write(to: self.dataFilePath!)
+            try data.write(to:self.dataFilePath!)
         }catch{
             print(error)
         }
